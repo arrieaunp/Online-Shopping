@@ -35,7 +35,6 @@ public class DVDcatalogController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
 
-        //set every session attrs(_ChB) to false and attrs(_Qtt) to -1
         Enumeration<String> session_attrs = session.getAttributeNames();
         while(session_attrs.hasMoreElements()){        
             String single_session_attr = session_attrs.nextElement();
@@ -46,7 +45,6 @@ public class DVDcatalogController extends HttpServlet {
             }
         }
 
-        //update session attrs that match request params
         Enumeration<String> req_params = request.getParameterNames();
         while(req_params.hasMoreElements()){             
             String single_req_param = req_params.nextElement();
@@ -57,7 +55,6 @@ public class DVDcatalogController extends HttpServlet {
             }
         }
 
-        //set request(for Result) attrs are used and delete (req_attrs and sess_attrs) which aren't used
         session_attrs = session.getAttributeNames();
         int totalPrice = 0;
         while(session_attrs.hasMoreElements()){    
